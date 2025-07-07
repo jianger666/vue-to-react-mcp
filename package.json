@@ -1,0 +1,44 @@
+{
+  "name": "@chenlujiang/vue-to-react-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Vue to React migration automation",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "vue-to-react-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepare": "npm run build",
+    "test": "node --test"
+  },
+  "keywords": [
+    "mcp",
+    "vue",
+    "react",
+    "migration",
+    "automation"
+  ],
+  "author": "Chen Lujiang",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "diff": "^5.1.0",
+    "simple-git": "^3.22.0",
+    "winston": "^3.11.0",
+    "fs-extra": "^11.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenlujiang/vue-to-react-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chenlujiang/vue-to-react-mcp/issues"
+  },
+  "homepage": "https://github.com/chenlujiang/vue-to-react-mcp#readme"
+}
