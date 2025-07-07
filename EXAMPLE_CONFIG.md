@@ -18,7 +18,7 @@
     "vue-to-react": {
       "command": "npx",
       "args": [
-        "@chenlujiang/vue-to-react-mcp",
+        "@jianger666/vue-to-react-mcp",
         "--vue-project", "/path/to/your/vue/project",
         "--react-project", "/path/to/your/react/project"
       ]
@@ -48,7 +48,7 @@
     "vue-to-react": {
       "command": "npx",
       "args": [
-        "@chenlujiang/vue-to-react-mcp",
+        "@jianger666/vue-to-react-mcp",
         "--vue-project", "/Users/yourname/projects/old-vue-app",
         "--react-project", "/Users/yourname/projects/new-react-app"
       ]
@@ -70,5 +70,4 @@
 
 1. 路径是否正确（必须是绝对路径）
 2. 项目目录是否存在
-3. 是否已安装 `@chenlujiang/vue-to-react-mcp`
-4. Claude Desktop 是否已重启 
+3. Claude Desktop 是否已重启 

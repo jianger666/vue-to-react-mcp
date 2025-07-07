@@ -1,5 +1,5 @@
 {
-  "name": "@chenlujiang/vue-to-react-mcp",
+  "name": "@jianger666/vue-to-react-mcp",
   "version": "1.0.0",
   "description": "MCP server for Vue to React migration automation",
   "main": "dist/index.js",
@@ -23,23 +23,23 @@
   "author": "Chen Lujiang",
   "license": "MIT",
   "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.10.0",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "@types/fs-extra": "^11.2.0"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "diff": "^5.1.0",
-    "fs-extra": "^11.2.0",
     "simple-git": "^3.22.0",
-    "winston": "^3.11.0"
+    "winston": "^3.11.0",
+    "fs-extra": "^11.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chenlujiang/vue-to-react-mcp.git"
+    "url": "git+https://github.com/jianger666/vue-to-react-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/chenlujiang/vue-to-react-mcp/issues"
+    "url": "https://github.com/jianger666/vue-to-react-mcp/issues"
   },
-  "homepage": "https://github.com/chenlujiang/vue-to-react-mcp#readme"
+  "homepage": "https://github.com/jianger666/vue-to-react-mcp#readme"
 }

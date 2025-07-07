@@ -10,12 +10,6 @@
 - 📝 自动维护 MIGRATION_GUIDE.md 知识库
 - 🎯 通用化设计，适用于任何 Vue 到 React 项目
 
-## 安装
-
-```bash
-npm install -g @chenlujiang/vue-to-react-mcp
-```
-
 ## 配置
 
 在您的 Claude Desktop 配置文件中添加：
@@ -26,7 +20,7 @@ npm install -g @chenlujiang/vue-to-react-mcp
     "vue-to-react": {
       "command": "npx",
       "args": [
-        "@chenlujiang/vue-to-react-mcp",
+        "@jianger666/vue-to-react-mcp",
         "--vue-project", "/path/to/vue/project",
         "--react-project", "/path/to/react/project"
       ]
