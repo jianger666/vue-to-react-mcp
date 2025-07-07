@@ -11,8 +11,17 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "prepare": "npm run build",
-    "test": "node --test"
+    "test": "node --test",
+    "prepublishOnly": "npm run build && npm test",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "keywords": [
     "mcp",
     "vue",
