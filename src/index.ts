@@ -95,19 +95,21 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
     switch (name) {
       case 'migrate_page':
-        return await migratePage({
-          pageName: args.pageName as string,
-          vueFilePath: args.vueFilePath as string | undefined,
+        const migrateResult = await migratePage({
+          pageName: args?.pageName as string,
+          vueFilePath: args?.vueFilePath as string | undefined,
           vueProjectPath,
           reactProjectPath
         });
+        return migrateResult;
 
       case 'learn_from_changes':
-        return await learnFromChanges({
-          targetDirectory: args.targetDirectory as string,
-          lastGeneratedCode: args.lastGeneratedCode as string | undefined,
+        const learnResult = await learnFromChanges({
+          targetDirectory: args?.targetDirectory as string,
+          lastGeneratedCode: args?.lastGeneratedCode as string | undefined,
           reactProjectPath
         });
+        return learnResult;
 
       default:
         throw new McpError(

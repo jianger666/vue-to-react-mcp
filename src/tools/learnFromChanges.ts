@@ -10,16 +10,9 @@ interface LearnFromChangesOptions {
   reactProjectPath: string;
 }
 
-interface LearnFromChangesResult {
-  content: Array<{
-    type: 'text';
-    text: string;
-  }>;
-}
-
 export async function learnFromChanges(
   options: LearnFromChangesOptions
-): Promise<LearnFromChangesResult> {
+) {
   const { targetDirectory, lastGeneratedCode, reactProjectPath } = options;
   
   logger.info('Learning from changes', { targetDirectory });
@@ -50,12 +43,8 @@ export async function learnFromChanges(
       codeDiff = '代码差异分析将基于 Git diff 进行';
     }
     
-    // 5. 构建响应
-    const response: LearnFromChangesResult = {
-      content: [
-        {
-          type: 'text',
-          text: `## 代码变更分析
+    // 5. 构建响应 - 符合 MCP 的响应格式
+    const responseText = `## 代码变更分析
 
 **目标目录**: \`${targetDirectory}\`
 
@@ -93,12 +82,16 @@ ${currentGuide}
 
 ---
 
-**下一步**: 请审阅以上学习总结，确认后我将更新 MIGRATION_GUIDE.md。`
+**下一步**: 请审阅以上学习总结，确认后我将更新 MIGRATION_GUIDE.md。`;
+    
+    return {
+      content: [
+        {
+          type: 'text',
+          text: responseText
         }
       ]
     };
-    
-    return response;
   } catch (error) {
     logger.error('Learning from changes failed', error);
     throw error;
