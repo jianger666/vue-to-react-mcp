@@ -12,7 +12,7 @@ interface MigratePageOptions {
 export async function migratePage(options: MigratePageOptions) {
   const { pageName, vueFilePath, vueProjectPath, reactProjectPath } = options;
   
-  logger.info('Starting page migration', { pageName, vueFilePath });
+  logger.info('Starting page migration', { pageName, vueFilePath, vueProjectPath });
   
   try {
     // 1. 查找 Vue 文件
@@ -22,15 +22,33 @@ export async function migratePage(options: MigratePageOptions) {
     } else {
       // 自动搜索 Vue 文件
       const vueFiles = await findFiles(vueProjectPath, /\.vue$/);
-      const matchedFiles = vueFiles.filter(file => 
-        file.toLowerCase().includes(pageName.toLowerCase().replace(/\s+/g, '-'))
-      );
+      logger.info('Found Vue files', { count: vueFiles.length });
+      
+      // 简单的文件名匹配
+      const matchedFiles = vueFiles.filter(file => {
+        const fileName = path.basename(file, '.vue').toLowerCase();
+        const searchName = pageName.toLowerCase();
+        return fileName.includes(searchName) || 
+               fileName.includes(searchName.replace(/\s+/g, '')) ||
+               fileName.includes(searchName.replace(/\s+/g, '-')) ||
+               fileName.includes(searchName.replace(/\s+/g, '_'));
+      });
       
       if (matchedFiles.length === 0) {
-        throw new Error(`未找到与 "${pageName}" 相关的 Vue 文件`);
+        // 提供简洁的错误信息，让AI引导用户
+        const availableFiles = vueFiles.map(f => path.relative(vueProjectPath, f));
+        throw new Error(`无法根据页面名称 "${pageName}" 自动找到对应的 Vue 文件。
+
+请用户提供具体的文件相对路径。例如：
+- src/views/order/CreateOrder.vue
+- src/pages/user/UserList.vue
+
+项目中的 Vue 文件列表：
+${availableFiles.slice(0, 20).join('\n')}${availableFiles.length > 20 ? `\n... 还有 ${availableFiles.length - 20} 个文件` : ''}`);
       }
       
       vueFile = matchedFiles[0];
+      logger.info('Matched Vue file', { file: vueFile });
     }
     
     // 2. 读取 Vue 文件内容

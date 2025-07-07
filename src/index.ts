@@ -11,7 +11,9 @@ import {
 import { migratePage } from './tools/migratePage.js';
 import { learnFromChanges } from './tools/learnFromChanges.js';
 import { ensureMigrationGuide } from './utils/fileOperations.js';
+import { findFiles } from './utils/fileOperations.js';
 import { logger } from './utils/logger.js';
+import path from 'path';
 
 // 解析命令行参数
 const args = process.argv.slice(2);
@@ -80,6 +82,15 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           },
           required: ['targetDirectory']
         }
+      },
+      {
+        name: 'list_vue_files',
+        description: '列出 Vue 项目中的所有 Vue 文件，用于调试和查看可用的文件',
+        inputSchema: {
+          type: 'object',
+          properties: {},
+          required: []
+        }
       }
     ]
   };
@@ -110,6 +121,33 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           reactProjectPath
         });
         return learnResult;
+
+      case 'list_vue_files':
+        const vueFiles = await findFiles(vueProjectPath, /\.vue$/);
+        const relativeFiles = vueFiles.map(f => path.relative(vueProjectPath, f));
+        
+        const listResult = {
+          content: [
+            {
+              type: 'text',
+              text: `## Vue 项目文件列表
+
+**Vue 项目路径**: \`${vueProjectPath}\`
+
+**找到的 Vue 文件 (${vueFiles.length} 个)**:
+${relativeFiles.map(f => `- \`${f}\``).join('\n')}
+
+您可以使用这些文件路径调用 \`migrate_page\` 工具，例如：
+\`\`\`json
+{
+  "pageName": "发单页面",
+  "vueFilePath": "src/views/order/CreateOrder.vue"
+}
+\`\`\``
+            }
+          ]
+        };
+        return listResult;
 
       default:
         throw new McpError(
