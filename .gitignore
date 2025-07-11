@@ -6,4 +6,8 @@ dist/
 coverage/
 .vscode/
 .idea/
-*.tsbuildinfo 
+*.tsbuildinfo
+
+# pnpm
+.pnpm-debug.log*
+.pnpm-store/ 

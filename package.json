@@ -3,16 +3,15 @@
   "version": "1.0.2",
   "description": "MCP server for Vue to React migration automation",
   "main": "dist/index.js",
-  "type": "module",
   "bin": {
     "vue-to-react-mcp": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "prepare": "npm run build",
+    "build": "node build.js",
+    "dev": "node dev.js",
+    "prepare": "pnpm run build",
     "test": "node --test",
-    "prepublishOnly": "npm run build && npm test",
+    "prepublishOnly": "pnpm run build && pnpm test",
     "version": "git add -A src",
     "postversion": "git push && git push --tags"
   },
@@ -38,9 +37,6 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "diff": "^5.1.0",
-    "simple-git": "^3.22.0",
-    "winston": "^3.11.0",
     "fs-extra": "^11.2.0"
   },
   "repository": {

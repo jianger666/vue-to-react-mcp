@@ -1,12 +1,12 @@
 
 import { readPromptMarkdown } from '../prompts';
 
-export async function migratePage() {
+export async function continueMigratePage() {
   return {
     content: [
       {
         type: 'text',
-        text: readPromptMarkdown('promptWords/migratePageSuccess.md')
+        text: readPromptMarkdown('promptWords/continueMigratePageSuccess.md')
       }
     ]
   };
