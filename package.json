@@ -1,6 +1,6 @@
 {
   "name": "@jianger666/vue-to-react-mcp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "MCP server for Vue to React migration automation",
   "main": "dist/index.js",
   "bin": {
