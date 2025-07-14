@@ -161,10 +161,3 @@ graph TD
 - GitHub: https://github.com/jianger666/vue-to-react-mcp
 - Issues: https://github.com/jianger666/vue-to-react-mcp/issues
 
-## 📄 许可证
-
-MIT License - 详见 [LICENSE](LICENSE) 文件
-
-## 🙏 致谢
-
-感谢所有为项目贡献代码和反馈的开发者！ 
