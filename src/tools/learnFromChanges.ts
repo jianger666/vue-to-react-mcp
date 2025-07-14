@@ -1,6 +1,7 @@
 import path from 'path';
 import { readFile, readAIBaseline } from '../utils/fileOperations';
 import { readPromptMarkdown } from '../prompts';
+import { getMigrationGuidePath } from '../utils/fileOperations';
 
 interface LearnFromChangesOptions {
   targetFiles: string[];
@@ -49,9 +50,9 @@ export async function learnFromChanges(
   }
   
   // 2. 读取当前的 MIGRATION_GUIDE.md
+  const migrationGuidePath = getMigrationGuidePath(reactProjectPath);
   let currentGuide = '';
   try {
-    const migrationGuidePath = path.join(reactProjectPath, 'MIGRATION_GUIDE.md');
     currentGuide = await readFile(migrationGuidePath);
   } catch (error) {
     currentGuide = '未找到迁移指南文件';
@@ -80,7 +81,8 @@ ${analysis.currentVersion}
         type: 'text',
         text: readPromptMarkdown('promptWords/learnFromChangesSuccess.md', {
           fileAnalyses: fileAnalysesText,
-          currentGuide
+          currentGuide,
+          migrationGuidePath
         })
       }
     ]

@@ -10,6 +10,37 @@ export async function readFile(filePath: string): Promise<string> {
 }
 
 /**
+ * 迁移指南文件名常量
+ */
+export const MIGRATION_GUIDE_FILENAME = 'MIGRATION_GUIDE.md';
+
+/**
+ * 获取迁移指南文件的完整路径
+ * @param reactProjectPath React项目根目录路径
+ * @returns 迁移指南文件的完整路径
+ */
+export function getMigrationGuidePath(reactProjectPath: string): string {
+  return path.join(reactProjectPath, MIGRATION_GUIDE_FILENAME);
+}
+
+export const  getMigrationGuide = async (reactProjectPath: string) => {
+  const guidePath = getMigrationGuidePath(reactProjectPath);
+  const exists = await fs.pathExists(guidePath);
+
+  let migrationGuide = '';
+  if (exists) {
+    migrationGuide = await fs.readFile(guidePath, 'utf-8');
+  } else {
+    const templatePath = path.join(__dirname, '..', 'templates', 'MIGRATION_GUIDE_TEMPLATE.md');
+    const templateContent = await fs.readFile(templatePath, 'utf-8');
+    // 如果迁移指南不存在，则写入迁移指南
+    await fs.writeFile(guidePath, templateContent, 'utf-8');
+    migrationGuide = templateContent;
+  }
+  return migrationGuide;
+}
+
+/**
  * 保存 AI 生成的基准版本
  */
 export async function saveAIBaseline(

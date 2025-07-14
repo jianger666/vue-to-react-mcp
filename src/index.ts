@@ -143,10 +143,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       });
 
     case 'migrate_page':
-      return await migratePage();
+      return await migratePage(reactProjectPath);
 
     case 'continue_migrate_page':
-      return await continueMigratePage();
+      return await continueMigratePage(reactProjectPath);
 
 
     case 'save_ai_baseline':
