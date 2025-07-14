@@ -23,9 +23,9 @@
 
 
 ### 任务文件检查
-检查目标 Vue 文件所在的目录下是否存在名为 `migrate_task.md` 的任务文件
-- **如果不存在** `migrate_task.md`：调用 `migrate_page` 工具进行新页面迁移
-- **如果存在** `migrate_task.md`：调用 `continue_migrate_page` 工具继续未完成的迁移任务
+检查目标 Vue 文件所在的目录下是否存在名为 `{当前迁移的项目文件名}_migrate_task.md` 的任务文件
+- **如果不存在** `{当前迁移的项目文件名}_migrate_task.md`：调用 `migrate_page` 工具进行新页面迁移
+- **如果存在** `{当前迁移的项目文件名}_migrate_task.md`：调用 `continue_migrate_page` 工具继续未完成的迁移任务
 
 
 **现在开始探索项目结构，找到用户要迁移的页面！** 

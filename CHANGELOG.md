@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2024-12-19
+
+### Changed
+- 更新任务文件命名格式，从固定的 `migrate_task.md` 改为 `{当前迁移的项目文件名}_migrate_task.md`
+- 避免同一目录下迁移不同Vue文件时任务文件重名问题
+- 更新所有相关提示词和文档说明
+
+### Improved
+- 提升迁移任务管理的灵活性，支持同时迁移多个Vue文件
+- 增强任务文件的可识别性和组织性
+
 ## [1.0.5] - 2024-07-14
 
 ### Fixed
@@ -98,7 +109,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 自动化构建和发布流程
 - 完善的错误处理和日志记录
 
-[Unreleased]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.5...HEAD
+[Unreleased]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.6...HEAD
+[1.0.6]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.2...v1.0.3

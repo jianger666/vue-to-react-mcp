@@ -65,7 +65,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'migrate_page',
-        description: '创建新的页面迁移任务。当get_from_application检查发现没有migrate_task.md文件时调用，用于拆解任务并创建任务文件。',
+        description: '创建新的页面迁移任务。当get_from_application检查发现没有{当前迁移的项目文件名}_migrate_task.md文件时调用，用于拆解任务并创建任务文件。',
         inputSchema: {
           type: 'object',
           properties: {},
@@ -74,7 +74,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'continue_migrate_page',
-        description: '继续执行未完成的迁移任务。当get_from_application检查发现存在migrate_task.md文件时调用，读取并执行下一个未完成的任务。',
+        description: '继续执行未完成的迁移任务。当get_from_application检查发现存在{当前迁移的项目文件名}_migrate_task.md文件时调用，读取并执行下一个未完成的任务。',
         inputSchema: {
           type: 'object',
           properties: {},
