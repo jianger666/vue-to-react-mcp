@@ -1,12 +1,15 @@
-name: Release
+name: Manual Publish
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 1.0.7)'
+        required: true
+        type: string
 
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -51,14 +54,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          body: |
-            Changes in this Release
-            - See CHANGELOG.md for details
-          draft: false
-          prerelease: false
-          generate_release_notes: true 
+      - name: Create Git tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag v${{ github.event.inputs.version }}
+          git push origin v${{ github.event.inputs.version }} 

@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.7] - 2024-12-19
+
+### Added
+- 添加 GitHub Packages 发布支持
+- 优化 GitHub Actions 工作流配置
+- 改进 npm 发布配置
+
+### Changed
+- 更新 Node.js 版本到 20
+- 统一发布流程，同时发布到 npm 和 GitHub Packages
+- 添加手动发布工作流支持
+
+### Fixed
+- 修复版本冲突问题
+- 优化包发布配置
+
 ## [1.0.6] - 2024-12-19
 
 ### Changed
@@ -109,7 +125,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 自动化构建和发布流程
 - 完善的错误处理和日志记录
 
-[Unreleased]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.6...HEAD
+[Unreleased]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.7...HEAD
+[1.0.7]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/jianger666/vue-to-react-mcp/compare/v1.0.3...v1.0.4
