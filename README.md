@@ -27,7 +27,11 @@ npx @jianger666/vue-to-react-mcp --vue-project /path/to/vue --react-project /pat
 
 ## ⚙️ 配置
 
-Cursor配置
+**重要说明**: 此 MCP 服务器需要在您的 React 项目中配置和使用。请确保您已经在 React 项目中设置了 MCP 服务器配置。
+
+### Cursor 配置
+
+在您的 React 项目中配置 MCP 服务器：
 
 ```json
 {
