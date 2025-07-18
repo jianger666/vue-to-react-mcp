@@ -27,10 +27,7 @@ npx @jianger666/vue-to-react-mcp --vue-project /path/to/vue --react-project /pat
 
 ## ⚙️ 配置
 
-在您的 Claude Desktop 配置文件中添加：
-
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+Cursor配置
 
 ```json
 {
